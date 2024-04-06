@@ -22,3 +22,37 @@ WHERE Salary < 60000 OR Salary IS NULL;
 ```
 
 
+
+
+Alter table university.instructor 
+drop foreign key instructor_ibfk_1;
+
+
+Alter table university.instructor
+add foreign key (dept_name) 
+references department(dept_name);
+
+
+insert into university.department(
+dept_id, dept_name, dept_building) values(
+"d_1234", "SE", "D-Building");
+
+insert into university.department(
+dept_id, dept_name, dept_building) values(
+"c_1234", "CE", "C-Building");
+
+
+INSERT INTO university.instructor
+(instructor_id, instructor_name, 
+instructor_salary, dept_name) values(
+"1234", "Chala", "20000", "SE");
+
+INSERT INTO university.instructor
+(instructor_id, instructor_name, 
+instructor_salary, dept_name) values(
+"1235", "Nashu", "20000", "CE");
+
+INSERT INTO university.instructor
+(instructor_id, instructor_name, 
+instructor_salary, dept_name) values(
+"1265", "Dr Ajit", "20000", "SE");
