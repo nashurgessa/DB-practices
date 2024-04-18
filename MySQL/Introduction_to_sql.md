@@ -66,6 +66,26 @@ references university.section(sec_id, course_id, semester, year_)
 
 ---
 
+### Creating a recursive table
+between course and prereq
+
+course(course_id(pk), title, dept_name, credits)
+prereq(course_id(pk)m prereq_id(pk))
+
+```sql
+create table university.prereq(
+course_id varchar(20),
+prereq_id varchar(20),
+primary key(course_id, prereq_id),
+FOREIGN KEY (course_id) REFERENCES 
+university.course(course_id) ON DELETE CASCADE,
+FOREIGN KEY (prereq_id) REFERENCES 
+university.course(course_id) ON DELETE CASCADE
+);
+```
+
+---
+
 ## Altering
 /* Adding foreign key to the table  (1)*/
 Alter table university.instructor
