@@ -34,14 +34,14 @@ public class PersonService {
         Person person = new Person(ID, name);
         repository.addPerson(person);
     }
+    public void addPerson(String ID, String name, String mother, String father){
+
+    }
 
     public ResultSet getPersonList() throws SQLException {
         return repository.getAllPersonsInfo();
     }
 
-    public void addPerson(String ID, String name, String mother, String father){
-
-    }
 
     public Person getPerson(int id) {
         // Logic to get a person

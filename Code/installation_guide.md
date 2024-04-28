@@ -1,10 +1,22 @@
 ### Using `Class.forName()` with `DriverManager`
 
-
 https://dev.mysql.com/downloads/file/?id=525081
 
-
 #### Hands onPractice
+
+
+**maven**
+
+```xml
+ <dependencies>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.32</version>
+        </dependency>
+    </dependencies>
+```
+
 `Main.java`
 
 ```java
@@ -43,7 +55,7 @@ import java.sql.SQLException;
 public class DatabaseConnectionManager {
     private static final String URL = "jdbc:mysql://localhost:3306/university";
     private static final String USER = "root";
-    private static final String PASSWORD = "hacha123";
+    private static final String PASSWORD = "mocha123";
 
     // Load the  database driver
     static {
@@ -92,7 +104,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class PersonRepositoryImp implements PersonRepository{
-    
+  
 // ...
 
     @Override
@@ -101,7 +113,7 @@ public class PersonRepositoryImp implements PersonRepository{
         try {
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setString(1, person.getID());
-        
+      
 			//...
         } catch (SQLException err) {
             System.out.println(err.getMessage());
@@ -118,10 +130,10 @@ public class PersonRepositoryImp implements PersonRepository{
 }
 ```
 
-
 ### Using `DataSource`
-   
+
 **Step 1:** Install the Database Plugin (If Not Already Installed) First, ensure that the Database Tools and SQL plugin is enabled in IntelliJ IDEA:
+
 1. Go to File > Settings (or IntelliJ IDEA > Preferences on macOS).
 2. Navigate to Plugins.
 3. Search for “Database Tools and SQL”.
@@ -129,14 +141,18 @@ public class PersonRepositoryImp implements PersonRepository{
 5. Restart IntelliJ IDEA if needed.
 
 **Step 2:** Open Database Tool Window
+
 1. Click on the Database tab on the right-hand side of the IDE or go to View > Tool Windows > Database.
 
 **Step 3:** Add a New Data Source
+
 1. In the Database tool window, click the `+`` (plus) icon to add a new data source.
 2. Select your database type (e.g., MySQL, PostgreSQL, Oracle, etc.).
 
 **Step 4:** Configure the Data Source
+
 1. Enter the necessary connection details:
+
 - Host: Usually localhost unless your database is remote.
 - Port: The default port on which your database listens (e.g., 3306 for MySQL).
 - User: Your database username.
@@ -146,13 +162,14 @@ public class PersonRepositoryImp implements PersonRepository{
 2. You can also use the URL tab to enter the JDBC URL directly if you prefer or know the exact URL.
 
 **Step 5:** Download Drivers
+
 1. IntelliJ IDEA may prompt you to download the JDBC driver if it's not already available. Allow it to download the necessary files.
 
 Step 6: Test Connection
-1. Click Test Connection to ensure all settings are correct and IntelliJ IDEA can connect to the database.
 
+1. Click Test Connection to ensure all settings are correct and IntelliJ IDEA can connect to the database.
 2. If the test is successful, you’ll see a message indicating the connection was successful. If not, it will show an error, and you’ll need to check your settings.
 
 **Step 7:** Apply and OK
-1. Click Apply and then OK to save the datasource configuration.
 
+1. Click Apply and then OK to save the datasource configuration.
