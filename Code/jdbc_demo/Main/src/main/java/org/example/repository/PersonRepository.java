@@ -9,4 +9,8 @@ public interface PersonRepository {
     void addPerson(Person person);
 
     ResultSet getAllPersonsInfo() throws SQLException;
+
+    boolean deletePerson(String ID);
+
+    boolean updatePerson(String ID, Person person);
 }
