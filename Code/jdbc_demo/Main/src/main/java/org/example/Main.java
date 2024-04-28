@@ -11,18 +11,34 @@ public class Main {
     public static void main(String[] args) throws SQLException {
         try {
             PersonService personService = PersonService.getInstance();
-
+            /*
+            // Insertion
             personService.addPerson("0019", "Nashu1");
             System.out.println("Insertion Successfully");
+             */
 
-            ResultSet queryResult = personService.getPersonList();
-
-            String ID, name;
-            while (queryResult.next()) {
-                ID = queryResult.getString("ID");
-                name = queryResult.getString("name");
-                System.out.println("Id: "+ ID + "name: "+ name);
+            // get All persons in the DB
+            /*
+            ResultSet rs = personService.getPersonList();
+            String ID, name, motherID, fatherID;
+            System.out.println("----------------------------------------------------");
+            while (rs.next()) {
+                ID = rs.getString("ID");
+                name = rs.getString("name");
+                motherID = rs.getString(3);
+                //if (rs.wasNull()) {
+                //    System.out.println("Mother is Null");
+                //}
+                fatherID = rs.getString(4);
+                //if (rs.wasNull()) {
+                //    System.out.println("Father is Null");
+                //}
+                System.out.println("Id: "+ ID + " name: "+ name +" mother Id: " + motherID + " FatherID: " + fatherID);
+                System.out.println("-------------------------------------------------");
             }
+            */
+
+
         } catch (SQLException err) {
             System.out.println(err.getMessage());
         }
