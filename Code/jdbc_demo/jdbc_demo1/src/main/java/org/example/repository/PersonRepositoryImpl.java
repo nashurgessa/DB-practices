@@ -5,6 +5,7 @@ import org.example.model.Person;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class PersonRepositoryImpl implements PersonRepository{
@@ -23,5 +24,11 @@ public class PersonRepositoryImpl implements PersonRepository{
         stmt.setString(2, person.getName());
         int result = stmt.executeUpdate();
         return result > 0;
+    }
+
+    @Override
+    public ResultSet selectAllPersons() throws SQLException {
+        String sql = "SELECT * FROM person";
+        return conn.createStatement().executeQuery(sql);
     }
 }
