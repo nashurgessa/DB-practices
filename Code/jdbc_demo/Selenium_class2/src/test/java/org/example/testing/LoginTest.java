@@ -36,7 +36,7 @@ public class LoginTest {
         assert logoutLink.isDisplayed();
 
         // Check logout success
-        WebElement loginButtonAgain = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("submit")));
+        WebElement loginButtonAgain = myWait.until(ExpectedConditions.visibilityOfElementLocated(By.id("submit")));
         assertTrue(loginButtonAgain.isDisplayed(), "Logout failed, login button not displayed after logout.");
 
 
