@@ -9,6 +9,8 @@ def registration():
         "message": "Okay"
         }), 200; 
     
+    
+    
 @app.route("/register", methods=["POST"]) 
 def register():
     person_data = request.json

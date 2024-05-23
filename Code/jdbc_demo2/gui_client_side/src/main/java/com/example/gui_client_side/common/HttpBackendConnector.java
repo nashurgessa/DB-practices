@@ -2,6 +2,8 @@ package com.example.gui_client_side.common;
 
 import okhttp3.*;
 
+import java.io.IOException;
+
 public class HttpBackendConnector {
     private static HttpBackendConnector instance;
     HttpBackendConnector() {
@@ -18,7 +20,7 @@ public class HttpBackendConnector {
 
     static OkHttpClient client = new OkHttpClient();
 
-    public Response sendPost(String body, String url) {
+    public Response send(String body, String url) {
         RequestBody formattedBody = RequestBody.create(
                 body, MediaType.parse("application/json; " +
                         "charset=utf-8"));
